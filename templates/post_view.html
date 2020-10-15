@@ -1,0 +1,22 @@
+{% load static %}
+
+<div><a href="/./allposts">All posts</a><a href="/./api/posts">Create post</a></div>
+
+
+
+<div>{{ post.title }} <a href="{{ post.link }}">Link</a> {{ post.author }} {{ post.date }} <a href="/./api/posts/{{ post.id }}">Edit</a></div>
+
+
+
+
+
+<div> Comments: <div>
+{% for comment in comments %}
+
+<div><li>{{ comment.author }} {{ comment.content }} {{ comment.date }} <a href="/./api/comments/{{ comment.id }}">Edit</a> </li></div>
+
+{% empty %}
+    <li>No comments yet. You may be first!</li>
+
+{% endfor %}
+<div><a href="/./api/comments">Write a comment...</a></div>

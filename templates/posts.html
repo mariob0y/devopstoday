@@ -1,0 +1,11 @@
+{% load static %}
+
+<div><a href="api/posts">Create post</a></div>
+
+{% for instance in object_list %}
+
+<div><a href="posts/view/{{ instance.id }}">{{ instance.title }}</a> <a href="{{ instance.link }}">Link</a> {{ instance.author }} {{ instance.date }} <a href="posts/{{ instance.id }}/downvote">-</a>({{ instance.upvote }}) <a href="posts/{{ instance.id }}/upvote">+</a>  <a href="api/posts/{{ instance.id }}">Edit</a>{{ instance.id }}</div>
+
+{% endfor %}
+
+
